@@ -3,22 +3,28 @@ import React from "react";
 import { Container, Avatar, Links } from "./styled";
 import { Consumer } from "../../context/";
 
+import vitor_cv from "../../assets/vitor_cv.pdf";
+
 const Contacts = props => (
   <Container>
     <h1>Vitor Cruz</h1>
     <Consumer>{context => <Avatar src={context.avatar} />}</Consumer>
     <Links>
       <a href="mailto:vitor.cruz@fatec.sp.gov.br">
-        <i class="far fa-envelope" />
+        <i className="far fa-envelope" />
       </a>
       <a target="_blank" href="https://github.com/tecladistaprod">
-        <i class="fab fa-github" />
+        <i className="fab fa-github" />
       </a>
       <a target="_blank" href="https://www.npmjs.com/~tecladistaprod">
-        <i class="fab fa-npm" />
+        <i className="fab fa-npm" />
       </a>
       <a target="_blank" href="https://medium.com/@vitor.cruz">
-        <i class="fab fa-medium" />
+        <i className="fab fa-medium" />
+      </a>
+      <a target="_blank" download="vitor_cv.pdf" href={vitor_cv}>
+        <i class="fas fa-user-circle" />
+        CV
       </a>
     </Links>
     <h3>Academic Articles</h3>

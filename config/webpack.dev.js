@@ -1,14 +1,14 @@
-const path = require('path')
-const HWP = require('html-webpack-plugin')
+const path = require("path");
+const HWP = require("html-webpack-plugin");
 
-process.env.NODE_ENV = 'development'
-process.env.BABEL_ENV = 'development'
+process.env.NODE_ENV = "development";
+process.env.BABEL_ENV = "development";
 
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   output: {
-    path: '/',
-    filename: 'bundle.js'
+    path: "/",
+    filename: "bundle.js"
   },
   module: {
     rules: [
@@ -16,20 +16,18 @@ module.exports = {
         test: /\.js$/i,
         exclude: /(node_modules)/,
         use: {
-          loader: 'babel-loader'
+          loader: "babel-loader"
         }
       },
       {
-        test: /\.(png|jpg|jpge|gif|svg|bmp)$/i,
-        use: [
-          { loader: 'file-loader' }
-        ]
+        test: /\.(png|jpg|jpge|gif|svg|bmp|pdf)$/i,
+        use: [{ loader: "file-loader" }]
       }
     ]
   },
   plugins: [
     new HWP({
-      template: './public/index.html',
+      template: "./public/index.html"
     })
   ],
   devServer: {
@@ -39,4 +37,4 @@ module.exports = {
     //noInfo: true,
     overlay: true
   }
-}
+};
