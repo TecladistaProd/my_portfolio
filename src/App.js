@@ -1,11 +1,7 @@
 //import modules
 import React, { Component, Fragment, Suspense } from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
-import { Provider } from "react-redux";
 import styled, { createGlobalStyle } from "styled-components";
-
-//import store
-import store from "./store";
 
 //import components
 import Header from "./components/Header/";
@@ -16,6 +12,8 @@ import Home from "./pages/Home/";
 const Contacts = React.lazy(() => import("./pages/Contacts/"));
 const Projects = React.lazy(() => import("./pages/Projects/"));
 const Skills = React.lazy(() => import("./pages/Skills/"));
+
+import { ContextProvider } from "./context/";
 
 export default class App extends Component {
   state = {
@@ -58,28 +56,28 @@ export default class App extends Component {
       <Fragment>
         <GlobalStyle activatedMenu={this.state.activatedMenu} />
         <Router>
-          <Provider store={store}>
-            <Container
-              onTouchStart={this.handleTouchStart}
-              onTouchMove={this.handleTouchMove}
-              onTouchEnd={this.handleTouchEnd}
-            >
-              <Header
-                active={this.state.activatedMenu}
-                onActive={activatedMenu => this.setState({ activatedMenu })}
-              />
-              <Content>
-                <Suspense fallback={<Spinner />}>
-                  <Switch>
+          <Container
+            onTouchStart={this.handleTouchStart}
+            onTouchMove={this.handleTouchMove}
+            onTouchEnd={this.handleTouchEnd}
+          >
+            <Header
+              active={this.state.activatedMenu}
+              onActive={activatedMenu => this.setState({ activatedMenu })}
+            />
+            <Content>
+              <Suspense fallback={<Spinner />}>
+                <Switch>
+                  <ContextProvider>
                     <Route exact path="/" component={Home} />
                     <Route path="/skills" component={Skills} />
                     <Route path="/contacts" component={Contacts} />
                     <Route path="/projects" component={Projects} />
-                  </Switch>
-                </Suspense>
-              </Content>
-            </Container>
-          </Provider>
+                  </ContextProvider>
+                </Switch>
+              </Suspense>
+            </Content>
+          </Container>
         </Router>
       </Fragment>
     );

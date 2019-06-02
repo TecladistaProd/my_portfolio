@@ -6,19 +6,13 @@ import { Avatar, Container } from "./styled";
 
 import Works from "../../components/Works/";
 
+import { Consumer } from "../../context/";
+
 class Home extends PureComponent {
-  state = {
-    avatar: ""
-  };
-  async componentDidMount() {
-    let data = await fetch("https://api.github.com/users/tecladistaprod");
-    data = await data.json();
-    this.setState({ avatar: data.avatar_url });
-  }
   render() {
     return (
       <Container>
-        <Avatar src={this.state.avatar} />
+        <Consumer>{context => <Avatar src={context.avatar} />}</Consumer>
         <p style={{ marginTop: "2rem" }}>
           My name is Vitor da Silva Cruz, i was born in Araraquara SP in Brazil,
           i love technology and develop, always looking be updated and know more
