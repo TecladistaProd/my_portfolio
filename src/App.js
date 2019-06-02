@@ -14,7 +14,7 @@ const Contacts = React.lazy(() => import("./pages/Contacts/"));
 const Projects = React.lazy(() => import("./pages/Projects/"));
 const Skills = React.lazy(() => import("./pages/Skills/"));
 
-import { ContextProvider } from "./context/";
+import { ContextProvider, Consumer } from "./context/";
 
 import fav from "./assets/js_fav.png";
 

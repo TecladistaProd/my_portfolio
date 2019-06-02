@@ -7,7 +7,8 @@ const Projects = () => (
     <Helmet>
       <title>My Projects</title>
     </Helmet>
-    <h1>Projects</h1>
+    <h1>My Projects</h1>
+    <h1 style={{ textAlign: "center" }}>Under Development</h1>
   </div>
 );
 

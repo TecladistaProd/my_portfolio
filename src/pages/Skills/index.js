@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import { Rows, Column } from "./styled";
 
 import Bar from "../../components/Bar/";
+import { Consumer } from "../../context/";
 
 const Skills = () => (
   <div>
