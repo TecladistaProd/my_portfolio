@@ -1,11 +1,16 @@
 import React from "react";
 
+import { Helmet } from "react-helmet";
+
 import { Rows, Column } from "./styled";
 
 import Bar from "../../components/Bar/";
 
 const Skills = () => (
   <div>
+    <Helmet>
+      <title>My Skills</title>
+    </Helmet>
     <h1>Here we go know my Skills</h1>
     <Rows>
       <Column>

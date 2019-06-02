@@ -2,6 +2,7 @@
 import React, { Component, Fragment, Suspense } from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
+import { Helmet } from "react-helmet";
 
 //import components
 import Header from "./components/Header/";
@@ -14,6 +15,8 @@ const Projects = React.lazy(() => import("./pages/Projects/"));
 const Skills = React.lazy(() => import("./pages/Skills/"));
 
 import { ContextProvider } from "./context/";
+
+import fav from "./assets/js_fav.png";
 
 export default class App extends Component {
   state = {
@@ -55,6 +58,9 @@ export default class App extends Component {
     return (
       <Fragment>
         <GlobalStyle activatedMenu={this.state.activatedMenu} />
+        <Helmet>
+          <link rel="icon" href={fav} />
+        </Helmet>
         <Router>
           <Container
             onTouchStart={this.handleTouchStart}
@@ -85,6 +91,7 @@ export default class App extends Component {
 }
 
 const GlobalStyle = createGlobalStyle`
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css");
   * {
     padding: 0;
     margin: 0;

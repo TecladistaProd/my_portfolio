@@ -10,6 +10,34 @@ function HeaderComp({ onActive, active }) {
   const clickMenu = str => {
     setHist(str);
     onActive(false);
+    let pageTitle = "About Me";
+    let page = "/";
+    switch (str) {
+      case "/":
+        pageTitle = "About Me";
+        page = "/";
+        break;
+      case "/skills":
+        pageTitle = "My Skills";
+        page = "/skills";
+        break;
+      case "/projects":
+        pageTitle = "My Projects";
+        page = "/projects";
+        break;
+      case "/contacts":
+        pageTitle = "Contact Me";
+        page = "/contacts";
+        break;
+      default:
+        pageTitle = "About Me";
+        page = "/";
+        break;
+    }
+    window.gtag("config", "UA-124805508-1", {
+      page_title: pageTitle,
+      page_path: page
+    });
   };
 
   return (

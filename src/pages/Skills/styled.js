@@ -15,7 +15,8 @@ export const Rows = styled.div`
 export const Column = styled.div`
   display: block;
   max-width: 90%;
-  min-width: 400px;
+  width: 400px;
+  min-width: 320px;
   margin: 0.7rem;
   padding: 0.7rem;
   h3 {

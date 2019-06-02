@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Helmet } from "react-helmet";
 import { Container, Avatar, Links } from "./styled";
 import { Consumer } from "../../context/";
 
@@ -7,6 +7,9 @@ import vitor_cv from "../../assets/vitor_cv.pdf";
 
 const Contacts = props => (
   <Container>
+    <Helmet>
+      <title>Contact Me</title>
+    </Helmet>
     <h1>Vitor Cruz</h1>
     <Consumer>{context => <Avatar src={context.avatar} />}</Consumer>
     <Links>
@@ -23,7 +26,7 @@ const Contacts = props => (
         <i className="fab fa-medium" />
       </a>
       <a target="_blank" download="vitor_cv.pdf" href={vitor_cv}>
-        <i class="fas fa-user-circle" />
+        <i className="fas fa-user-circle" />
         CV
       </a>
     </Links>

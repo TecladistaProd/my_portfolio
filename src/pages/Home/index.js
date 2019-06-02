@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import { Avatar, Container } from "./styled";
 
@@ -12,6 +13,9 @@ class Home extends PureComponent {
   render() {
     return (
       <Container>
+        <Helmet>
+          <title>About Me</title>
+        </Helmet>
         <Consumer>{context => <Avatar src={context.avatar} />}</Consumer>
         <p style={{ marginTop: "2rem" }}>
           My name is Vitor da Silva Cruz, i was born in Araraquara SP in Brazil,
