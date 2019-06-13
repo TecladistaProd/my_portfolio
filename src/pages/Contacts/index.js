@@ -16,6 +16,9 @@ const Contacts = props => (
       <a href="mailto:vitor.cruz@fatec.sp.gov.br">
         <i className="far fa-envelope" />
       </a>
+      <a target="_blank" href="https://www.linkedin.com/in/vitor-s-1403b4134">
+        <i className="fab fa-linkedin" />
+      </a>
       <a target="_blank" href="https://github.com/tecladistaprod">
         <i className="fab fa-github" />
       </a>

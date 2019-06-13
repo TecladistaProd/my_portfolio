@@ -35,7 +35,7 @@ export const Menu = styled.div`
   width: ${props => (props.active ? "250px" : "0")};
   opacity: ${props => (props.active ? "1" : ".2")};
   top: 0;
-  left: 0;
+  right: 0;
   z-index: 100;
   background: #121212;
   overflow-x: hidden;

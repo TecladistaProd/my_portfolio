@@ -46,9 +46,11 @@ export default class App extends Component {
     // console.log(px1 > px0, px1 > px0 + 30);
     console.log();
     if (px1 > px0 && px1 > px0 + 50 && Math.abs(py0 - py1) < 30) {
-      activatedMenu = true;
-    } else if (px1 < px0 && px0 > px1 + 50) {
       activatedMenu = false;
+      // activatedMenu = true;
+    } else if (px1 < px0 && px0 > px1 + 50) {
+      activatedMenu = true;
+      // activatedMenu = false;
     }
     moving = false;
     px0 = px1 = py0 = py1 = null;
@@ -108,13 +110,24 @@ const GlobalStyle = createGlobalStyle`
     overflow: ${props => (props.activatedMenu ? "hidden" : "auto")};
   }
   #app {
-    transition: margin-left .5s, overflow 0.5s;
-    margin-left: ${props => (props.activatedMenu ? "250px" : "0")};
+    transition: padding-right .5s ease, overflow 0.5s ease-in-out;
+    padding-right: ${props => (props.activatedMenu ? "250px" : "0")};
+  }
+  #app:after {
+    content: '';
+    background: rgba(25, 25, 25, .7);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    transition: opacity 0.5s ease-in-out;
+    opacity: ${props => (props.activatedMenu ? "1" : "0")};
+    z-index:${props => (props.activatedMenu ? "1" : "-1")};
   }
   @media screen and (max-width: 700px) {
     #app {
-      transition: margin-left .5s, overflow 0.5s;
-      margin-left: ${props => (props.activatedMenu ? "200px" : "0")};
+      padding-right: ${props => (props.activatedMenu ? "200px" : "0")};
     } 
   }
 `;
