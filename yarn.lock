@@ -3863,11 +3863,6 @@ parcel-bundler@^1.12.4:
     v8-compile-cache "^2.0.0"
     ws "^5.1.1"
 
-parcel-plugin-clean-dist@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/parcel-plugin-clean-dist/-/parcel-plugin-clean-dist-0.0.6.tgz#e3da68aaadc19b258c111fc114fe68e7866bf4fb"
-  integrity sha512-zzPY/ORCzkV+V7nfyYlONLrBithrx6orJjepdBoqqb9myeV9zQZUoBY41i3QkSSnQX7ilGmWDALX2XlxC6z7Fw==
-
 parent-module@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/parent-module/-/parent-module-1.0.1.tgz#691d2709e78c79fae3a156622452d00762caaaa2"
