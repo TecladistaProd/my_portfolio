@@ -36,11 +36,23 @@ class Magnify extends Component {
     })
   }, 30)
 
+  handleTouchMove = throttle((e) => {
+    if(e.touches.length === 1) {
+      e.preventDefault()
+      this.handleMove({
+        target: e.target,
+        clientX: e.touches[0].clientX,
+        clientY: e.touches[0].clientY
+      })
+    }
+  }, 30)
+
   render() {
     return (
       <ImageContainer
         actualCursor={!!this.state.showZoom ? 'zoom-out' : 'zoom-in'}
         onMouseMove={this.handleMove}
+        onTouchMove={this.handleTouchMove}
         ref={container => this.container = container}
       >
         <Image

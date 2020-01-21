@@ -7,4 +7,6 @@ let data = fs.readdirSync('./dist')
 
 data = data.filter(i => !i.match(/git/g))
 
-data.forEach(file => fs.unlinkSync(path.resolve('dist', file)))
+for(let file of data) {
+  fs.unlinkSync(path.resolve('dist', file))
+}

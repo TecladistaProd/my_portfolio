@@ -12,6 +12,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  touch-action: none;
   &.active {
     animation: containerAnimation .7s 1 ease forwards;
     /* opacity: 1;

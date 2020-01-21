@@ -1,10 +1,12 @@
-import React, { useContext, useCallback, useEffect } from 'react';
+import React, { useContext, useCallback, useLayoutEffect } from 'react';
 
 import { Container, Link, CloseBtn } from './styles';
 
 import menuContext from '../../context/menu'
 
 import { IoMdClose as CloseIcon } from 'react-icons/io'
+
+import debounce from '../../helpers/debounce'
 
 function Menu() {
   const ctx = useContext(menuContext);
@@ -15,19 +17,19 @@ function Menu() {
       return
 
     e.preventDefault()
+    
 
     const { target: { href } } = e;
-    let id = href.split('/#')[1] || '/home'
+
+    let id = href.split('/#')[1] || '/home' 
+
     let val = 0
     let el = document.getElementById(`${id}`)
     if(el && 'offsetTop' in el)
       val = document.getElementById(`${id}`).offsetTop
     location.hash = id
+    console.log(id)
     window.scrollTo(0, val-69)
-  }, [])
-
-  useEffect(() => {
-    setTimeout(() => closeMenu({ target:  { href: location.href }, preventDefault: () => null }), 5000)
   }, [])
 
   return (

@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 
 import bound from 'react-bounds.js'
 
-const Container = bound.div({ threshold: [.35] })
-
 let PageComp = null
 
-function Page() {
+import throttle from '../../helpers/throttle'
+
+function Page({ rootContainer }) {
   const [loadPage, setLoadPage] = useState(false)
   const [entered, setEntered] = useState(false)
+  const Container = bound.div({ root: rootContainer.current, margins: { top: 8 }, threshold: [.3, .7] })
 
-  function handleEnter() {
-    location.hash = '/gallery'
+  const handleEnter = useCallback(throttle((el, val) => {
+    if(val > .6)
+      location.hash = '/gallery' 
     if(entered) return
     setEntered(true)
-  }
+  }, 100), [entered])
 
   async function renderPage() {
     const { default: df } = await import('./Gallery')
@@ -31,9 +33,10 @@ function Page() {
   return (
     <Container style={{
       width: '100%',
-      minHeight: '520px'
+      minHeight: '520px',
+      marginTop: '4rem'
     }}
-      onEnter={handleEnter}
+      onEnter={handleEnter}      
       id="/gallery"
     >
       {

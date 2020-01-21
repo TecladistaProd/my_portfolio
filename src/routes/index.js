@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 
 import Header from '../components/Header'
 
@@ -15,6 +15,7 @@ import Footer from '../components/Footer'
 import menuContext from '../context/menu'
 
 function Routes () {
+  const contentRef = useRef()
   const [ menuOpened, setMenuOpened ] = useState(false)
   return (
     <menuContext.Provider value={{menuOpened, setMenuOpened}}>
@@ -22,11 +23,11 @@ function Routes () {
       <Container>
         <Header/>
         
-        <Content>
-          <Home/>
-          <Gallery />
-          <About/>
-          <Contact/>
+        <Content ref={contentRef}>
+          <Home rootContainer={contentRef}/>
+          <Gallery rootContainer={contentRef}/>
+          <About rootContainer={contentRef}/>
+          <Contact rootContainer={contentRef}/>
         </Content>
         
         <Footer/>
