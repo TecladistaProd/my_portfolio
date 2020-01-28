@@ -52,7 +52,7 @@ function Menu() {
       <Link onClick={closeMenu} href="/#/contact">
         Contact
       </Link>
-      <Link href='https://tecladistaprod.github.io/portfolio_storybook'>
+      <Link href='https://storybook-portfolio-vitor.netlify.com/'>
         Storybook
       </Link>
     </Container>
