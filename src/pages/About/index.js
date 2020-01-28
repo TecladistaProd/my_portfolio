@@ -11,7 +11,7 @@ function Page() {
   const [entered, setEntered] = useState(false)
 
   function handleEnter(...args) {
-    location.hash = '/about'
+    // location.hash = '/about'
     if(entered) return
     setEntered(true)
   }

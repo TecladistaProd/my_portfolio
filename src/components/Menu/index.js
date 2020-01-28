@@ -6,7 +6,7 @@ import menuContext from '../../context/menu'
 
 import { IoMdClose as CloseIcon } from 'react-icons/io'
 
-import debounce from '../../helpers/debounce'
+// import debounce from '../../helpers/debounce'
 
 function Menu() {
   const ctx = useContext(menuContext);
@@ -51,6 +51,9 @@ function Menu() {
       </Link>
       <Link onClick={closeMenu} href="/#/contact">
         Contact
+      </Link>
+      <Link href='https://tecladistaprod.github.io/portfolio_storybook'>
+        Storybook
       </Link>
     </Container>
   );

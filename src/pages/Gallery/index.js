@@ -12,8 +12,8 @@ function Page({ rootContainer }) {
   const Container = bound.div({ root: rootContainer.current, margins: { top: 8 }, threshold: [.3, .7] })
 
   const handleEnter = useCallback(throttle((el, val) => {
-    if(val > .6)
-      location.hash = '/gallery' 
+    // if(val > .6)
+    //   location.hash = '/gallery' 
     if(entered) return
     setEntered(true)
   }, 100), [entered])
